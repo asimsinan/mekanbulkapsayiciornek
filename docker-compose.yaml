@@ -1,0 +1,43 @@
+version: '3.7'
+services:
+    mekanbulfrontend:
+        build: .
+        container_name: mekanbulfrontend_kapsayici
+        image: frontendimage
+        ports:
+            - 3000:3000
+        networks:
+           - benimagim
+        restart: always
+        depends_on:
+            - mekanbulapi       
+        command: npm start
+    mekanbulapi:
+        build: ./mekanbul_api
+        image: apiimage
+        container_name: mekanbulapi_kapsayici
+        ports:
+            - 9000:9000
+        networks:
+           - benimagim
+        restart: always
+        depends_on:
+            - mongo        
+        command: npm start
+    mongo:
+        image: mongo:latest
+        container_name: mongodb_kapsayici
+        networks:
+          - benimagim
+        restart: always
+        environment:
+          - MONGO_DATA_DIR=/data/db
+        volumes:
+          - ./data/db:/data/db
+        ports:
+            - 27017:27017
+networks:
+  benimagim:
+    driver: bridge
+    ipam:
+      driver: default

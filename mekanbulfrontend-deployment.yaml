@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: mekanbulfrontend
+  name: mekanbulfrontend
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: mekanbulfrontend
+  template:
+    metadata:
+      annotations:
+      labels:
+        app: mekanbulfrontend
+    spec:
+      containers:
+        - args:
+            - npm
+            - start
+          image: frontendimage
+          name: mekanbulfrontend-kapsayici
+          imagePullPolicy: Never
+          ports:
+            - containerPort: 3000
+      restartPolicy: Always

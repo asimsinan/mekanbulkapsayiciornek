@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: mekanbulapi
+  name: mekanbulapi
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: mekanbulapi
+  template:
+    metadata:
+      labels:
+        app: mekanbulapi
+    spec:
+      containers:
+        - args:
+            - npm
+            - start
+          image: apiimage
+          name: mekanbulapi-kapsayici
+          imagePullPolicy: Never
+          ports:
+            - containerPort: 9000
+      restartPolicy: Always

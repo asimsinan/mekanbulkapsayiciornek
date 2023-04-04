@@ -1,8 +1,8 @@
 version: "3.7"
 services:
-    mekanbulfrontend:
+    frontend:
         build: .
-        container_name: mekanbulfrontend_kapsayici
+        container_name: frontend
         image: frontendimage
         ports:
             - 3000:3000
@@ -13,9 +13,9 @@ services:
             - mekanbulapi       
         command: npm start
     mekanbulapi:
-        build: ./mekanbul_api
+        build: ./app_api
         image: apiimage
-        container_name: mekanbulapi_kapsayici
+        container_name: mekanbulapi
         ports:
             - 9000:9000
         networks:
@@ -26,7 +26,7 @@ services:
         command: npm start
     mongo:
         image: mongo:latest
-        container_name: mongodb_kapsayici
+        container_name: mongodb
         networks:
           - benimagim
         restart: always

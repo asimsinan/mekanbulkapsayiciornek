@@ -1,5 +1,5 @@
 extends layout
-include ortak_fonksiyonlar/fonksiyonlar
+include fonksiyonlar/yildiz
 block content
   #banner.page-header
     //satır oluştur
@@ -8,7 +8,7 @@ block content
         //Controller içinde tanımladığımız değişkenleri kullandık
         //Ya eşittir işaretiyle ya da #{} biçiminde
         h1= sayfaBaslik.siteAd
-          small &nbsp;#{sayfaBaslik.aciklama}
+          small &nbsp; #{sayfaBaslik.aciklama}
   .row
     //mobil uyumlu listeleme
     .col-xs-12.col-sm-12
@@ -30,7 +30,7 @@ block content
             span.btn.pull-right
              a.btn.btn-primary.pull-right(href='/admin/mekan/'+mekanid+'/sil') Mekan Sil
             span.btn.pull-right
-             a.btn.btn-danger.pull-right(href='/admin/mekan/'+mekanid+'/guncelle') Mekan Güncelle
+             a.btn.btn-info.pull-right(href='/admin/mekan/'+mekanid+'/guncelle') Mekan Güncelle
            
             p.address= mekan.adres
             p

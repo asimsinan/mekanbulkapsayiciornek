@@ -1,7 +1,7 @@
 
 FROM node:latest
 
-WORKDIR /mekanbul-fullstack
+WORKDIR /mekanbul_app
 
 COPY package*.json ./
 

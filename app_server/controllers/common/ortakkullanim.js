@@ -1,6 +1,5 @@
 const axios = require("axios");
 const apiSecenekleri = {
-  sunucuReplit: "https://mekanbul-fullstack.asimsinanyuksel.repl.co",
   sunucu:"http://mekanbulapi:9000",
   apiYolu: "/api",
   mekanYolu: "/mekanlar/",

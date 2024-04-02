@@ -13,6 +13,7 @@ const kayitOl = async (req, res) => {
   kullanici.eposta = req.body.eposta;
   kullanici.cinsiyet=req.body.cinsiyet;
   kullanici.sifreAyarla(req.body.sifre);
+  kullanici.rol="admin";
   kullanici.save((hata) => {
     if (hata) {
       res.status(404).json(hata);
